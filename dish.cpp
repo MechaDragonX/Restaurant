@@ -34,9 +34,9 @@ void Dish::setDescription(std::string description) {
 std::string Dish::toString(bool full) const {
     if(full) {
         // return std::format("Name: {}\nPrice: {}\nDescription: {}", name_, price_, description_); 
-        return "Name: " + name_ + "\nPrice: " + std::to_string(price_) + "\nDescription: " + description_;
+        return "Name: " + name_ + "\nPrice: " + "$" + std::to_string(price_) + "\nDescription: " + description_;
     } else
-        return name_ + ", " + std::to_string(price_);
+        return name_ + ", " + "$" + std::to_string(price_);
 }
 
 bool Dish::operator<(const Dish& other) const {
