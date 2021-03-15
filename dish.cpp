@@ -9,7 +9,7 @@ Dish::Dish() {
     description_ = "None";
 }
 Dish::Dish(std::string name, double price, std::string description) : name_(name), price_(price), description_(description) {
-    std::ceil(price * 100.0) / 100.0;
+    // price_ = std::ceil(price_ * 100.0) / 100.0;
 }
 
 std::string Dish::getName() {
@@ -34,7 +34,7 @@ void Dish::setDescription(std::string description) {
 std::string Dish::toString(bool full) const {
     if(full) {
         // return std::format("Name: {}\nPrice: {}\nDescription: {}", name_, price_, description_); 
-        return "Name: " + name_ + "Price: " + std::to_string(price_) + "Description: " + description_;
+        return "Name: " + name_ + "\nPrice: " + std::to_string(price_) + "\nDescription: " + description_;
     } else
         return name_ + ", " + std::to_string(price_);
 }
