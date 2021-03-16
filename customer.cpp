@@ -6,9 +6,11 @@
 Customer::Customer() {
     name_ = "";
     orderedItems_ = {};
+    previousOrder = Dish();
 }
 Customer::Customer(std::string name) : name_(name) {
     orderedItems_ = {};
+    previousOrder = Dish();
 }
 
 std::string Customer::getName() {
@@ -23,9 +25,10 @@ std::map<Dish, int> Customer::getOrderedItems() {
 
 void Customer::order(Dish dish, int quantity) {
     orderedItems_.insert({ dish, quantity });
+    previousOrder = dish;
 }
 bool Customer::cancelOrder() {
-    orderedItems_.erase(std::prev(orderedItems_.end()));
+    orderedItems_.erase(previousOrder);
     return true;
 }
 bool Customer::cancelOrder(Dish dish) {
@@ -36,7 +39,7 @@ bool Customer::cancelOrder(Dish dish) {
     return false;
 }
 bool Customer::modifyOrder(int quantity) {
-    orderedItems_[std::prev(orderedItems_.end())->first] = quantity;
+    orderedItems_[previousOrder] = quantity;
     return true;
 }
 bool Customer::modifyOrder(Dish dish, int quantity) {

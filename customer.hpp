@@ -11,6 +11,8 @@ class Customer {
         std::string name_;
         // Map of Dish => quantity
         std::map<Dish, int> orderedItems_;
+        // Last dish stored in menory
+        Dish previousOrder;
     public:
         // Default Constructor
         Customer();
