@@ -20,6 +20,31 @@ static std::array<Dish, 10> MENU {
 };
 
 int main() {
-    std::cout << MENU[4].toString(true) << std::endl;
-    std::cout << "$" << MENU[4].getPrice() << std::endl;
+    Customer rags("Raghav");
+
+    // Order 2 of 1 entry
+    rags.order(MENU[1], 2);
+    std::cout << rags.toString() << std::endl;
+    // Order 2 of a 2nd entry
+    rags.order(MENU[2], 2);
+    std::cout << rags.toString() << std::endl;
+    // Remove 2nd entry
+    rags.cancelOrder();
+    std::cout << rags.toString() << std::endl;
+
+    // Order three deserts
+    rags.order(MENU[4], 3);
+    std::cout << rags.toString() << std::endl;
+    // Change to 2 of them
+    rags.modifyOrder(2);
+    std::cout << rags.toString() << std::endl;
+
+    // Change to 1 entry
+    rags.modifyOrder(MENU[1], 1);
+    std::cout << rags.toString() << std::endl;
+
+    // Order one drink
+    rags.order(MENU[6], 1);
+    // Final receipt
+    std::cout << rags.toString() << std::endl;
 }
