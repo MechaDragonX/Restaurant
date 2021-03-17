@@ -27,7 +27,7 @@ class Customer {
         // Order given dish (append to orderedItems_)
         void order(Dish dish, int quantity);
         /*
-            No params: Cancel previous order (remove final item of orderedItems_)             
+            No params: Cancel previous order
             Params: Check to see if passed Dish is in orderedItems_ and then remove it, if not, do not remove anything
             
             Return true if successful and false if not
